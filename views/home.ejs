@@ -1,0 +1,37 @@
+<%- include('./partials/header.ejs') %>
+
+<main>
+    <div class="blurred d-flex justify-content-center align-items-center" style="height: 10vh;">
+        <div class="container">
+            <nav class="d-flex justify-content-between align-items-center p-3">
+                <h2 class="display-6 fw-bold text-white"><a href="/"
+                        class="text-decoration-none display-6 fw-bold text-white">PolicyGrab</a></h2>
+                <ul class="m-0 list-unstyled">
+                    <li><a href="#" class="text-decoration-none lead text-danger fw-normal">Register/Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <section style=" height: 90vh;" id="registerandlogin">
+        <div class="row m-0 flex-column flex-wrap w-100" style=" height: 90vh; backdrop-filter: blur(5px);">
+            <div class="col-6 p-3 d-flex flex-column justify-content-center align-items-center"
+                style=" height: 90vh; box-shadow: 0px 0px 5px black;">
+                <h1 class="display-4 mb-3">Not Yet Registered?
+                </h1>
+                <h1 class="display-5 mb-5">Register Now to apply for policies</h1>
+                <button class="btn btn-danger"><a href="/register"
+                        class="text-decoration-none h4 fw-normal text-white">Register</a></button>
+            </div>
+            <div class="col-6 p-3 d-flex flex-column justify-content-center align-items-center"
+                style=" height: 90vh; box-shadow: -0px 0px 5px black;">
+                <h1 class="display-4 mb-3">Already registered?
+                </h1>
+                <h1 class="display-5 mb-5">Login to apply for policies</h1>
+                <button class="btn btn-danger"><a href="/login"
+                        class="text-decoration-none h4 fw-normal text-white">Login</a></button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<%- include('./partials/footer.ejs') %>

@@ -1,0 +1,147 @@
+<%- include('./partials/header.ejs') %>
+
+<main>
+    <div class="blurred mb-5">
+        <div class="container">
+            <nav class="d-flex justify-content-between align-items-center p-3">
+                <h2 class="display-6 fw-bold text-white"><a href="/"
+                        class="text-decoration-none display-6 fw-bold text-white">PolicyGrab</a></h2>
+                <ul class="m-0 list-unstyled">
+                    <li class='d-inline-block me-4 mb-0'><a href="/appliedpolicies"
+                            class="text-decoration-none lead text-danger fw-normal">Applied Policies</a></li>
+                    <li class='d-inline-block me-4 mb-0'><a href="/updateprofile"
+                            class="text-decoration-none lead text-danger fw-normal">Update Profile</a></li>
+                    <li class='d-inline-block mb-0'><a href="/"
+                            class="text-decoration-none lead text-danger fw-normal">Log Out</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <section class="mt-5">
+        <div class="container">
+            <div class="row justify-content-end align-items-center">
+                <div class="col-7 d-flex align-items-center flex-wrap">
+                    <div class="p-2 formdiv">
+                        <div class="w-100 overflow-auto max-h-75" id="policyform">
+                            <div class="w-auto m-3 my-4 mb-0">
+                                <h2 class="fw-light pb-2 border-2 border-bottom border-danger d-inline-block">Financial
+                                    Info
+                                </h2>
+                            </div>
+                            <form action="" method="post"
+                                class="d-flex justify-content-between flex-wrap align-items-center p-3 py-4 pb-0">
+                                <div class="d-flex align-items-center mb-4">
+                                    <label for="annualincome" class="m-0 form-label">Annual Income: </label>
+                                    <input type="number" name="annualincome" id="annualincome"
+                                        class="form-control w-auto mx-2" required>
+                                </div>
+                                <div class="d-flex align-items-center mb-4">
+                                    <label for="networth" class="m-0 form-label">Net Worth: </label>
+                                    <input type="number" name="networth" id="networth" class="form-control w-auto mx-2"
+                                        required>
+                                </div>
+                                <!-- </form> -->
+                                <div class="w-100 my-4">
+                                    <h2 class="fw-light pb-2 border-2 border-bottom border-danger d-inline-block">
+                                        Medical
+                                        Info
+                                    </h2>
+                                </div>
+                                <!-- <form action="" method="post"
+                                class="d-flex justify-content-between flex-wrap align-items-center p-3 py-4 pb-0"> -->
+                                <div class="d-flex align-items-center mb-4">
+                                    <label for="heightofcustomer" class="m-0 form-label">Height: </label>
+                                    <input type="number" name="heightofcustomer" id="heightofcustomer"
+                                        class="form-control w-auto mx-2" required placeholder="In Cm"
+                                        value=<%= locals.heightOfCust %>>
+                                </div>
+                                <div class="d-flex align-items-center mb-4">
+                                    <label for="weightofcustomer" class="m-0 form-label">Weight: </label>
+                                    <input type="number" name="weightofcustomer" id="weightofcustomer"
+                                        class="form-control w-auto mx-2" required placeholder="In Kg">
+                                </div>
+                                <div class="d-flex align-items-center mb-4">
+                                    <label for="dobofcustomer" class="m-0 form-label">Date of Birth: </label>
+                                    <input type="date" name="dobofcustomer" id="dobofcustomer"
+                                        class="form-control w-auto mx-2" required>
+                                </div>
+                                <div class="d-flex align-items-center mb-4">
+                                    <label for="" class="m-0">Lifestyle Habits: </label>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="smokingstyle" id="smokingstyle"
+                                            class="form-check-input mx-2" value="Smoking" required>
+                                        <label for="smokingstyle" class="m-0 form-check-label">Smoking</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="drinkingstyle" id="drinkingstyle"
+                                            class="form-check-input mx-2" value="Smoking" required>
+                                        <label for="drinkingstyle" class="m-0 form-check-label">Drinking</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="exercisestyle" id="exercisestyle"
+                                            class="form-check-input mx-2" value="Smoking" required>
+                                        <label for="exercisestyle" class="m-0 form-check-label">Exercise</label>
+                                    </div>
+                                </div>
+                                <!-- </form> -->
+                                <div class="w-100 my-4">
+                                    <h2 class="fw-light pb-2 border-2 border-bottom border-danger d-inline-block">Bank
+                                        Info
+                                    </h2>
+                                </div>
+                                <!-- <form action="" method="post"
+                                class="d-flex justify-content-between flex-wrap align-items-center p-3 py-4 pb-0"> -->
+                                <div class="d-flex align-items-center mb-4">
+                                    <label for="bankname" class="m-0 form-label">Bank Name: </label>
+                                    <input type="text" name="bankname" id="bankname" class="form-control w-auto mx-2"
+                                        required>
+                                </div>
+                                <div class="d-flex align-items-center mb-4">
+                                    <label for="accountnumber" class="m-0 form-label">Account Number: </label>
+                                    <input type="number" name="accountnumber" id="accountnumber"
+                                        class="form-control w-auto mx-2" required>
+                                </div>
+                                <div class="d-flex align-items-center mb-4">
+                                    <label for="ifsc" class="m-0 form-label">IFSC Code: </label>
+                                    <input type="text" name="ifsc" id="ifsc" class="form-control w-auto mx-2" required>
+                                </div>
+                                <!-- </form> -->
+                                <div class="w-100 my-4">
+                                    <h2 class="fw-light pb-2 border-2 border-bottom border-danger d-inline-block">
+                                        Beneficiaries Info
+                                    </h2>
+                                </div>
+                                <!-- <form action="" method="post"
+                                class="d-flex justify-content-between flex-wrap align-items-center p-3 py-4 pb-0"> -->
+                                <div class="d-flex align-items-center mb-4">
+                                    <label for="beneficiaryname" class="m-0 form-label">Beneficiary Name: </label>
+                                    <input type="text" name="beneficiaryname" id="beneficiaryname"
+                                        class="form-control w-auto mx-2" required>
+                                </div>
+                                <div class="d-flex align-items-center mb-4">
+                                    <label for="beneficiaryage" class="m-0 form-label">Beneficiary Age: </label>
+                                    <input type="number" name="beneficiaryage" id="beneficiaryage"
+                                        class="form-control w-auto mx-2" required>
+                                </div>
+                                <div class="d-flex align-items-center mb-4">
+                                    <label for="beneficiaryrelation" class="m-0 form-label">Beneficiary Relation:
+                                    </label>
+                                    <input type="text" name="beneficiaryrelation" id="beneficiaryrelation"
+                                        class="form-control w-auto mx-2" required>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center mt-4 w-100">
+                                    <input type="submit" value="Submit" class="btn btn-warning">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+
+
+<%- include('./partials/footer.ejs') %>

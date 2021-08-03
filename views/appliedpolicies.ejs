@@ -1,0 +1,46 @@
+<%- include('./partials/header.ejs') %>
+
+<main>
+    <div id="appliedpolicies">
+        <div class="blurred mb-5">
+            <div class="container">
+                <nav class="d-flex justify-content-between align-items-center p-3">
+                    <h2 class="display-6 fw-bold text-white"><a href="/"
+                            class="text-decoration-none display-6 fw-bold text-white">PolicyGrab</a></h2>
+                    <ul class="m-0 list-unstyled">
+                        <li><a href="/" class="text-decoration-none lead text-danger fw-normal">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="mb-4">You have applied in the following policies:</h2>
+                    </div>
+                </div>
+                <div class="row formdiv py-2 bg-warning-light">
+                    <div class="col-1 d-flex justify-content-center align-items-center border-right">
+                        <h4 class="m-2">1</h4>
+                    </div>
+                    <div class="col-9 d-flex justify-content-center align-items-center border-right">
+                        <h4 class="m-2">Policy ID: akajflkadslkfafldjlf</h4>
+                    </div>
+                    <div class="col-1 d-flex justify-content-center align-items-center border-right">
+                        <h4 class="m-2"><a href="/updatepolicy" class="text-decoration-none text-dark"><i
+                                    class="bi bi-pen"></i></a>
+                        </h4>
+                    </div>
+                    <div class="col-1 d-flex justify-content-center align-items-center">
+                        <h4 class="m-2"><a href="" class="text-decoration-none text-dark"><i
+                                    class="bi bi-trash"></i></a></h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+
+<%- include('./partials/footer.ejs') %>
