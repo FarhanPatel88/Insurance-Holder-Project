@@ -24,7 +24,7 @@ try {
             // useNewUrlParser: true,
             useUnifiedTopology: true,
             // useMongoClient: true
-            dbName: 'insurance_holders',
+            // dbName: 'insurance_holders',
         },
         () => console.log('Mongoose is connected')
     );
