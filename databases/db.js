@@ -5,6 +5,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
 let uri = 'mongodb://localhost:27017/insurance_holders';
+// let uri = 'mongodb+srv://farhan:9004788819@grabpolicyesd.4h0uj.mongodb.net/grabpolicyesd?retryWrites=true&w=majority'
 
 // const uri = 'mongodb+srv://farhan:9004788819@cluster0.q0ssn.mongodb.net/ludo_game?retryWrites=true&w=majority'
 
