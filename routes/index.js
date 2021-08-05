@@ -8,11 +8,11 @@ const Policies = mongoose.model('Policies');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('home', { title: 'Express' });
+    res.render('home', { title: 'Grab Policy' });
 });
 
 router.get('/register', function (req, res, next) {
-    res.render('register', { title: 'Express' });
+    res.render('register', { title: 'Register' });
 });
 
 router.post('/register', (req, res) => {
@@ -250,7 +250,7 @@ router.get('/afterlogin', function (req, res, next) {
     const customerid = req.query.customerid;
     if (req.session.current_url == 'profileupdate') {
         res.render('afterlogin', {
-            title: 'Choose Job',
+            title: 'Menu Page',
             customerid: customerid,
             appliedpolicieslink: `/appliedpolicies?customerid=${customerid}`,
             applypolicylink: `/applypolicy?customerid=${customerid}`,
@@ -258,7 +258,7 @@ router.get('/afterlogin', function (req, res, next) {
         });
     } else {
         res.render('afterlogin', {
-            title: 'Choose Job',
+            title: 'Menu Page',
             customerid: customerid,
             appliedpolicieslink: `/appliedpolicies?customerid=${customerid}`,
             applypolicylink: `/applypolicy?customerid=${customerid}`,
