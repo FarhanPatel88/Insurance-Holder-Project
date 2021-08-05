@@ -14,15 +14,35 @@
 
     <section class="d-flex flex-column justify-content-center align-items-center" style="height: 90vh;">
         <div class="w-100" id="appliedpoliciesdiv">
-            <div class="d-flex flex-column justify-content-center align-items-center flex-wrap">
+            <div class="d-flex flex-column justify-content-center align-items-center flex-wrap" id="topsection">
+                <% if (locals.customerid && locals.login) { %>
+                <div class="alert alert-success" role="alert" id="loginbadge">
+                    Login Successfull
+                </div>
+                <% } %>
+                <% if (locals.customerid && locals.updatedprofile) { %>
+                <div class="alert alert-success" role="alert" id="loginbadge">
+                    Profile Updated Successfully
+                </div>
+                <% } %>
                 <h1 class="display-3 w-100 d-flex justify-content-center align-items-center">Check your applied policies</h1>
+                <% if (locals.customerid) { %>
+                <button class="btn btn-warning mt-2"><a href=<%= locals.appliedpolicieslink %>
+                        class="text-decoration-none text-dark h4 fw-normal">Check</a></button>
+                <% } else { %>
                 <button class="btn btn-warning mt-2"><a href="/appliedpolicies" class="text-decoration-none text-dark h4 fw-normal">Check</a></button>
+                <% } %>
             </div>
         </div>
         <div class="d-flex justify-content-center align-items-center w-100" id="newpolicy">
             <div class="d-flex flex-column justify-content-center align-items-center flex-wrap">
                 <h1 class="display-3 w-100 d-flex justify-content-center align-items-center">Apply for a new policy!</h1>
+                <% if (locals.customerid) { %>
+                <button class="btn btn-warning mt-2"><a href=<%= locals.applypolicylink %>
+                        class="text-decoration-none text-dark h4 fw-normal">Apply</a></button>
+                <% } else { %>
                 <button class="btn btn-warning mt-2"><a href="/applypolicy" class="text-decoration-none text-dark h4 fw-normal">Apply</a></button>
+                <% } %>
             </div>
         </div>
     </section>

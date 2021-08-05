@@ -10,7 +10,10 @@
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-session": "^1.17.2",
+    "heroku-cli": "^7.0.9",
     "http-errors": "~1.6.3",
+    "mongoose": "^5.13.5",
     "morgan": "~1.9.1",
     "node-sass-middleware": "0.11.0"
   }

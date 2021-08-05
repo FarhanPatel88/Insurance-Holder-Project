@@ -4,10 +4,14 @@
   <div class="blurred mb-5">
     <div class="container">
       <nav class="d-flex justify-content-between align-items-center p-3">
-        <h2 class="display-6 fw-bold text-white"><a href="/"
-            class="text-decoration-none display-6 fw-bold text-white">PolicyGrab</a></h2>
+        <h2 class="display-6 fw-bold text-white"><a href="/" class="text-decoration-none display-6 fw-bold text-white">PolicyGrab</a></h2>
         <ul class="m-0 list-unstyled">
+          <% if (locals.customer) { %>
+            <li class='d-inline-block me-4 mb-0'><a href="/appliedpolicies?customerid=<%= locals.customer.id %>" class="text-decoration-none lead text-danger fw-normal">Applied Policies</a></li>
+          <li class='d-inline-block me-4 mb-0'><a href="/" class="text-decoration-none lead text-danger fw-normal">Logout</a></li>
+          <% } else { %>
           <li><a href="/login" class="text-decoration-none lead text-danger fw-normal">Login</a></li>
+          <% } %>
         </ul>
       </nav>
     </div>
@@ -17,61 +21,84 @@
       <div class="row justify-content-end align-items-center">
         <div class="col-7 d-flex align-items-center flex-wrap">
           <div class="w-100 mb-5">
-            <h2 class="fw-light pb-2 border-2 border-bottom border-danger d-inline-block">Registration Details</h2>
+            <h2 class="fw-light pb-2 border-2 border-bottom border-danger d-inline-block">
+              <% if (locals.customer) { %>
+              Update Details
+              <% } else { %>
+              Registration Details
+              <% } %>
+            </h2>
           </div>
           <div class="w-100 formdiv" id="">
-            <form action="" method="post" class="d-flex justify-content-between flex-wrap align-items-center p-3 py-5">
-              <div class="d-flex align-items-center mb-4">
-                <label for="nameofcustomer" class="m-0 form-label">Name: </label>
-                <input type="text" name="nameofcustomer" id="nameofcustomer" class="form-control w-auto mx-2" required>
-              </div>
-              <div class="d-flex align-items-center mb-4">
-                <label for="ageofcustomer" class="m-0 form-label">Age: </label>
-                <input type="number" name="ageofcustomer" id="ageofcustomer" class="form-control w-auto mx-2" required>
-              </div>
-              <div class="d-flex align-items-center mb-4">
-                <label for="occupationofcustomer" class="m-0 form-label">Occupation: </label>
-                <input type="text" name="occupationofcustomer" id="occupationofcustomer"
-                  class="form-control w-auto mx-2" required>
-              </div>
-              <div class="d-flex align-items-center mb-4">
-                <label for="sexofcustomer" class="m-0 form-label">Sex: </label>
-                <select name="sexofcustomer" id="sexofcustomer" class="form-select w-auto mx-2">
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-              <div class="d-flex align-items-center mb-4">
-                <label for="numberofcustomer" class="m-0 form-label">Number: </label>
-                <input type="number" name="numberofcustomer" id="numberofcustomer" class="form-control w-auto mx-2"
-                  required>
-              </div>
-              <div class="d-flex align-items-center mb-4">
-                <label for="emailofcustomer" class="m-0 form-label">Email: </label>
-                <div class="input-group has-validation mx-2" required>
-                  <span class="input-group-text" id="inputGroupPrepend">@</span>
-                  <input type="email" class="form-control" id="emailofcustomer" aria-describedby="inputGroupPrepend"
-                    required>
-                  <div class="invalid-feedback">
-                    Please choose an email.
+            <% if (locals.customer) { %>
+            <form action="/updateprofile?customerid=<%= locals.customer.id %>" method="post"
+              class="d-flex justify-content-between flex-wrap align-items-center p-3 py-5">
+              <% } else { %>
+              <form action="/register" method="post" class="d-flex justify-content-between flex-wrap align-items-center p-3 py-5">
+                <% } %>
+                <div class="d-flex align-items-center mb-4">
+                  <label for="nameofcustomer" class="m-0 form-label">Name: </label>
+                  <input type="text" name="nameofcustomer" id="nameofcustomer" class="form-control w-auto mx-2" required <% if(locals.customer) { %>
+                    value=<%= locals.customer.customerName %> <% } %>>
+                </div>
+                <div class="d-flex align-items-center mb-4">
+                  <label for="ageofcustomer" class="m-0 form-label">Age: </label>
+                  <input type="number" name="ageofcustomer" id="ageofcustomer" class="form-control w-auto mx-2" required <% if(locals.customer) { %>
+                    value=<%= locals.customer.customerAge %> <% } %>>
+                </div>
+                <div class="d-flex align-items-center mb-4">
+                  <label for="occupationofcustomer" class="m-0 form-label">Occupation: </label>
+                  <input type="text" name="occupationofcustomer" id="occupationofcustomer" class="form-control w-auto mx-2" required
+                    <% if(locals.customer) { %> value=<%= locals.customer.customerOccupation %> <% } %>>
+                </div>
+                <div class="d-flex align-items-center mb-4">
+                  <label for="sexofcustomer" class="m-0 form-label">Sex: </label>
+                  <select name="sexofcustomer" id="sexofcustomer" class="form-select w-auto mx-2">
+                    <option value="Male" <% if (locals.customer) { %> <% if (locals.customer.customerSex == 'Male') { %> selected <% } %> <% } %>>
+                      Male
+                    </option>
+                    <option value="Female" <% if (locals.customer) { %> <% if (locals.customer.customerSex == 'Female') { %> selected <% } %> <% } %>>
+                      Female
+                    </option>
+                    <option value="Other" <% if (locals.customer) { %> <% if (locals.customer.customerSex == 'Other') { %> selected <% } %> <% } %>>
+                      Other
+                    </option>
+                  </select>
+                </div>
+                <div class="d-flex align-items-center mb-4">
+                  <label for="numberofcustomer" class="m-0 form-label">Number: </label>
+                  <input type="number" name="numberofcustomer" id="numberofcustomer" class="form-control w-auto mx-2" required
+                    <% if(locals.customer) { %> value=<%= locals.customer.customerPhone %> <% } %>>
+                </div>
+                <div class="d-flex align-items-center mb-4">
+                  <label for="emailofcustomer" class="m-0 form-label">Email: </label>
+                  <div class="input-group has-validation mx-2" required>
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                    <input type="email" name='emailofcustomer' class="form-control" id="emailofcustomer" aria-describedby="inputGroupPrepend" required
+                      <% if(locals.customer) { %> value=<%= locals.customer.customerEmail %> <% } %>>
+                    <div class="invalid-feedback">
+                      Please choose an email.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="d-flex align-items-center mb-4">
-                <label for="passwordofcustomer" class="m-0 form-label">Password: </label>
-                <input type="password" name="passwordofcustomer" id="passwordofcustomer"
-                  class="form-control w-auto mx-2" required placeholder="Create New Password">
-              </div>
-              <div class="d-flex align-items-center mb-5 w-100">
-                <label for="addressofcustomer" class="m-0 form-label">Address: </label>
-                <textarea name="addressofcustomer" id="addressofcustomer" class="form-control mx-2" rows="3"
-                  required></textarea>
-              </div>
-              <div class="d-flex align-items-center justify-content-center w-100">
-                <input type="submit" value="Register" class="btn btn-warning text-dark">
-              </div>
-            </form>
+                <div class="d-flex align-items-center mb-4">
+                  <label for="passwordofcustomer" class="m-0 form-label">Password: </label>
+                  <input type="password" name="passwordofcustomer" id="passwordofcustomer" class="form-control w-auto mx-2" required
+                    <% if (locals.customer) { %> placeholder="Set New Password" <% } else { %> placeholder="Create New Password" <% } %>>
+                </div>
+                <div class="d-flex align-items-center mb-5 w-100">
+                  <label for="addressofcustomer" class="m-0 form-label">Address: </label>
+                  <textarea name="addressofcustomer" id="addressofcustomer" class="form-control mx-2" rows="3"
+                    required><% if(locals.customer) { %><%= locals.customer.customerAddress %> <% } %></textarea>
+                </div>
+                <div class="d-flex align-items-center justify-content-center w-100">
+                  <% if (locals.customer) { %>
+                  <input type="submit" value="Update" class="btn btn-warning text-dark">
+                  <% } else { %>
+                  <input type="submit" value="Register" class="btn btn-warning text-dark">
+                  <% } %>
+                </div>
+              </form>
           </div>
         </div>
       </div>
