@@ -8,7 +8,7 @@ const Policies = mongoose.model('Policies');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('home', { title: 'Grab Policy' });
+    res.render('home', { title: 'Policy Grab' });
 });
 
 router.get('/register', function (req, res, next) {
@@ -168,15 +168,17 @@ router.get('/updatepolicy', function (req, res, next) {
         if (date < 10) {
             date = `0${data.custDOB.getDate()}`;
         }
-        
-        const customerid = data.custId
+
+        const customerid = data.custId;
         const dob = `${data.custDOB.getFullYear()}-${month}-${date}`;
-        res.render('applypolicy', { 
-            title: 'Update Policy', 
-            policy: data, dob: dob, 
-            customerid: customerid, 
-            applypolicyurl: `/applypolicy?customerid=${customerid}`, 
-            appliedpoliciesurl: `/appliedpolicies?customerid=${customerid}`, });
+        res.render('applypolicy', {
+            title: 'Update Policy',
+            policy: data,
+            dob: dob,
+            customerid: customerid,
+            applypolicyurl: `/applypolicy?customerid=${customerid}`,
+            appliedpoliciesurl: `/appliedpolicies?customerid=${customerid}`,
+        });
     });
 });
 

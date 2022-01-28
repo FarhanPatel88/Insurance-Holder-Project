@@ -7,12 +7,6 @@ mongoose.set('useCreateIndex', true);
 let uri = 'mongodb://localhost:27017/insurance_holders';
 // let uri = 'mongodb+srv://farhan:9004788819@grabpolicyesd.4h0uj.mongodb.net/grabpolicyesd?retryWrites=true&w=majority'
 
-// const uri = 'mongodb+srv://farhan:9004788819@cluster0.q0ssn.mongodb.net/ludo_game?retryWrites=true&w=majority'
-
-// const uri = 'mongodb://u0xzi9qgygzmouklw2yb:9dgFodVokRleGfFBWSyJ@bhjuf67nlbq8dpe-mongodb.services.clever-cloud.com:27017/bhjuf67nlbq8dpe'
-
-// let uri = 'mongodb://testing-mongo:NJ2ldTOQCvHZmO74fifI74R5WGEtxucrWvhnan5dfvHGMNT73Jbfb85wnupKR6zDqfyWbzZ9pzaH6TfQtiS19w==@testing-mongo.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@testing-mongo@'
-
 if (process.env.NODE_ENV === 'production') {
     uri = process.env.MONGODB_URI;
 }
